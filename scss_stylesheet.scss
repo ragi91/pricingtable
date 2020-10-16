@@ -1,0 +1,144 @@
+/* Scss Document */
+* {
+    box-sizing: border-box;
+	text-align: -webkit-center;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+	
+}
+
+
+$primary-color: #efefef;
+$primary1-color: #4d4d4d;
+$primary2-color: #ffffff;
+$primary3-color: #010038;
+$primary4-color: #293a80;
+ 
+$myFont: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; 
+$myFontSize: 26px;
+$myFontSize2: 25px;
+$myFontSize3: 18px;
+$myFontSize4: 16px;
+
+.row {
+	width: 75%;
+}
+
+h2{
+	font-family: $myFont;
+	color: $primary1-color;
+}
+
+
+@mixin coloumnproperty {
+	float: left;
+    width: 300px / 900px * 100%;
+    padding: 5px;
+
+}
+
+
+@mixin priceproperty1 {
+  list-style-type: none;
+	border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+@mixin priceheader {
+    background-color: $primary4-color;
+	color: $primary2-color;
+	font-size: $myFontSize;
+	font-weight: 500;
+	line-height: 50px;
+	font-family: $myFont;
+}
+
+
+
+@mixin buttonproperty {
+    background-color: $primary4-color;
+    border: none;
+	border-radius: 30px;
+    color: $primary2-color;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: $myFontSize3; 
+}
+
+@mixin greyproperty {
+    color: #4d4d4d;
+    background-color: #f4f4f4;
+    font-size: $myFontSize2;
+	font-weight: 500;
+	line-height: 50px;
+	font-family: $myFont;
+} 
+
+@mixin buttonhover {
+	background-color: #010038;
+    /*box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);*/
+}
+
+@mixin pricehover{
+	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+	-webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    transform: scale(1.03);
+        -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.columns {
+	@include coloumnproperty;
+		}
+	
+	.price {
+		@include priceproperty1;
+    
+	}
+
+	ul {
+		list-style-type: none;
+		li {
+			border-bottom: 1px solid #eee;
+    		padding: 20px;
+    		text-align: center;
+			font-family: $myFont;
+			font-size: $myFontSize4;
+		}
+}
+
+.price .header {
+		@include priceheader;
+	}
+
+.button {
+	@include buttonproperty;
+}
+	
+.grey {
+	@include greyproperty;
+}
+
+.button:hover {
+	@include buttonhover;
+}
+
+.price:hover{
+	@include pricehover;
+}
+
+@media only screen and (min-width : 374px ) and ( max-width : 800px ){
+    .columns {
+        width: 100%;
+    }
+}
